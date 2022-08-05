@@ -1,11 +1,4 @@
 
-const add = (a,b)=>a+b;
-const sub = (a,b)=>a-b;
-const div = (a,b)=>a/b;
+const math = require('./math');
 
-const test =(a,b) =>add(a,b)/sub(a,b);
-module.exports={
-    test,add
-}
-
-console.log(module.exports);
+console.log(math.add(10,2));
