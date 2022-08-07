@@ -20,6 +20,6 @@ fs.writeFile('test.json',data,(err)=>{
   {
     console.log(err);
   }else{
-    console.log("File Write Successfully!");
+    console.log("File Writes Successfully!");
   }
 });
