@@ -1,8 +1,10 @@
 const express = require('express');
+const morgan = require('morgan');
 
 //console.log(express);
 
 const app = express();
+app.use(morgan('dev'));
 
 app.get('/',(req,res)=>{
     res.json(
@@ -13,10 +15,10 @@ app.get('/',(req,res)=>{
     );
 })
 
-app.get('/path',(req,res)=>{
-    console.dir(req.path)
-    //res.send(req.ip);
-})
+// app.get('/path',(req,res)=>{
+//     console.dir(req.path)
+//     //res.send(req.ip);
+// })
 
 
 const PORT = process.env.PORT || 8080;
