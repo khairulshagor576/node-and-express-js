@@ -6,6 +6,17 @@ const morgan = require('morgan');
 const app = express();
 //app.use(morgan('dev'));
 
+function myCustomMiddleware(req,res,next)
+{
+    //console.log(req.url);
+    if(req.url=='/path'){
+     res.send("<h1>This page is blocked by admin user</h1>");
+    }
+    //console.log("I am Logged");
+    next();
+}
+app.use(myCustomMiddleware);
+
 app.get('/',(req,res)=>{
     res.json(
         {
@@ -15,7 +26,7 @@ app.get('/',(req,res)=>{
     );
 })
 
-app.get('/path',morgan('dev'),(req,res)=>{
+app.get('/path',(req,res)=>{
     //console.dir(req.path)
     res.send("<h1>This is path page</h1>");
 })
