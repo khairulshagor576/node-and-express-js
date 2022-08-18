@@ -1,13 +1,9 @@
 const express = require('express');
 const morgan = require('morgan');
+const userRounter = require('./router');
 
-
-//console.log(router);
-
-//console.log(express);
 
 const app = express();
-const router = express.Router();
 //app.use(morgan('dev'));
 
 
@@ -41,21 +37,16 @@ app.get('/',(req,res)=>{
         }
     );
 })
-//Router starts
-router.get('/login',(req,res)=>{
-    res.send("I am login router!");
+
+app.get("/contact",(req,res)=>{
+   res.send("<h2>This is Contact Page</h2>");
 });
 
-router.get('/logout',(req,res)=>{
-    res.send("I am logout router!");
+app.get('/about',(req,res)=>{
+   res.send("<h3>This is About Page</h3>");
 });
 
-router.get('/signup',(req,res)=>{
-    res.send("I am signup router!");
-});
-//Router ends
-
-app.use('/user',router);
+app.use('/user',userRounter);
 
 app.get('/path',(req,res)=>{
     //console.dir(req.path)
