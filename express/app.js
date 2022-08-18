@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
-const userRounter = require('./router');
+const userRouter = require('./router');
+const postRouter = require('./postRoute')
 
 
 const app = express();
@@ -38,6 +39,10 @@ app.get('/',(req,res)=>{
     );
 })
 
+app.get("/post/:postId",(req,res)=>{
+    res.send("I am listening!");
+})
+
 app.get("/contact",(req,res)=>{
    res.send("<h2>This is Contact Page</h2>");
 });
@@ -46,7 +51,8 @@ app.get('/about',(req,res)=>{
    res.send("<h3>This is About Page</h3>");
 });
 
-app.use('/user',userRounter);
+app.use('/user',userRouter);
+app.use('/posts',postRouter);
 
 app.get('/path',(req,res)=>{
     //console.dir(req.path)
