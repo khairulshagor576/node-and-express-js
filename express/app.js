@@ -39,8 +39,30 @@ app.get('/',(req,res)=>{
     );
 })
 
+/*--------------------------
+parameter provide with path:
+------------------------------*/ 
 app.get("/post/:postId",(req,res)=>{
-    res.send("I am listening!");
+   // console.log(req.params);
+    res.send("I am listening!"+req.params.postId);
+})
+
+/*--------------------------======
+Multi parameter provide with path:
+------------------------------=====*/ 
+app.get("/products/:prodId/reviews/:reviewId",(req,res)=>{
+    console.log(req.params);
+    res.send("Product id is: "+req.params.prodId+" "+"Review id is "+req.params.reviewId);
+});
+
+/*--------------------------------------
+Extract query string from route or path:
+------------------------------------------*/ 
+
+app.get('/data',(req,res)=>{
+    let {category,price,type} = req.query;
+    //console.log(req.query);
+    res.send(category+" "+price+" "+type);
 })
 
 app.get("/contact",(req,res)=>{
