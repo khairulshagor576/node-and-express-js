@@ -1,13 +1,11 @@
-const express = require('express');
-const morgan = require('morgan');
+const express    = require('express');
+const morgan     = require('morgan');
 const userRouter = require('./router');
 const postRouter = require('./postRoute')
 
 
 const app = express();
 //app.use(morgan('dev'));
-
-
 
 function myCustomMiddleware(req,res,next)
 {
