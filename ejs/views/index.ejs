@@ -7,7 +7,12 @@
     <title>Ejs Embaded Language</title>
 </head>
 <body>
-      <h1>This is EJS language</h1>
+      <h1><%= title %></h1>
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, commodi cum? Rem aliquam perferendis ipsum ad veniam reprehenderit quis obcaecati quos a consequuntur, mollitia eveniet aspernatur dicta dolore tempore incidunt.</p>
+      <p><%= new Date().getFullYear(); %> </p>
+      <% if(post.published){ %>
+        <h3>Title: <%= post.title %></h3>
+        <p>Body: <strong><%= post.body %></strong> and post creator is: <strong><%= post.author%></strong></p>
+        <% } %>
 </body>
 </html>

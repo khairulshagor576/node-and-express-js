@@ -10,8 +10,15 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({extend:true}));
 app.use(express.json());
 
+let post = {
+    title:"I am a Post",
+    body:"This is a post body",
+    published:true,
+    author:"Khairul Islam"
+}
+
 app.get('/',(req,res)=>{
-    res.render('index');
+    res.render('index',{title:"This is EJS language and it's awesome",post});
 })
 
 const PORT = process.env.PORT || 8080;
