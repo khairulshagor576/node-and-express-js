@@ -17,8 +17,23 @@ let post = {
     author:"Khairul Islam"
 }
 
+const posts =[
+    {title:"title 1",author:"khairul"},
+    {title:"title 2",author:"nasir"},
+    {title:"title 3",author:"rakib"},
+    {title:"title 4",author:"sultan"},
+]
+
+app.get('/about',(req,res)=>{
+    res.render('pages/about');
+})
+
+app.get('/profile',(req,res)=>{
+    res.render('pages/profile');
+})
+
 app.get('/',(req,res)=>{
-    res.render('index',{title:"This is EJS language and it's awesome",post});
+    res.render('pages/index',{title:"This is EJS language and it's awesome",post,posts});
 })
 
 const PORT = process.env.PORT || 8080;

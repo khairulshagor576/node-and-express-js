@@ -7,6 +7,7 @@
     <title>Ejs Embaded Language</title>
 </head>
 <body>
+      <%- include('../partials/nav.ejs') %>
       <h1><%= title %></h1>
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, commodi cum? Rem aliquam perferendis ipsum ad veniam reprehenderit quis obcaecati quos a consequuntur, mollitia eveniet aspernatur dicta dolore tempore incidunt.</p>
       <p><%= new Date().getFullYear(); %> </p>
@@ -14,5 +15,10 @@
         <h3>Title: <%= post.title %></h3>
         <p>Body: <strong><%= post.body %></strong> and post creator is: <strong><%= post.author%></strong></p>
         <% } %>
+        <ul>
+          <% for(let p of posts){ %>
+                <li><%= p.title %> By <%= p.author %></li>
+          <% } %>
+      </ul>
 </body>
 </html>
